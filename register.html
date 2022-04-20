@@ -1,0 +1,104 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title%}Inscription {% endblock %}
+{% block style %} 
+    
+<style>
+    .topright {
+        position: absolute;
+        top: 8px;
+        right: 16px;
+        font-size: 14px;
+    }
+    label{
+        background: transparent;
+        font-family: Raleway-SemiBold;
+        font-size: 18px;
+        color: #333333;
+        line-height: 1.2;
+    }
+</style>
+
+{% endblock style %}
+    
+{% block content %}
+
+<div id="container">
+	<video autoplay="true" id="videoElement">
+	
+	</video>
+</div>
+<section class="ftco-section">
+    <div class="container">
+
+<div class="container-contact100"> 
+    <a class="notify-btn topright" href="/"> Acceuil
+    </a>       
+    <div class="wrap-contact100">
+        <form class="contact100-form validate-form" action="{% url 'Etudiants:register' %}" method="POST">
+            {% csrf_token %}
+            <span class="contact100-form-title">
+                Formulaire
+            </span>
+
+            <div class="wrap-input100 validate-input">
+                <input class="input100" type="text" name="name" placeholder="Full Name" required>
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="wrap-input100 rs1 validate-input">
+                <input class="input100" type="number" name="face_id" placeholder="ID [Devrais être un nombre entier]" required>
+                <span class="focus-input100"></span>
+            </div> 
+
+            {% comment %} <div class="wrap-input100 rs1 validate-input">
+                <input class="input100" type="text" name="email" placeholder="Email" required>
+                <span class="focus-input100"></span>
+            </div>  {% endcomment %}
+
+            <div class="wrap-input100 rs1 validate-input">
+                <input class="input100" type="text" name="tel" placeholder="Numéro de Téléphone" required>
+                <span class="focus-input100"></span>
+            </div> 
+
+            <div class="wrap-input100 rs1 validate-input">
+                <input class="input100" type="text" name="formation" placeholder="Formation" required>
+                <span class="focus-input100"></span>
+            </div> 
+
+            <div class="wrap-input100 validate-input">
+                <input class="input100" type="text" name="adresse" placeholder="Adresse" required>
+                <span class="focus-input100"></span>
+            </div> 
+
+            <div class="wrap-input100 validate-input">
+                <input class="input100" type="text" name="bio" placeholder="A propos" required>
+                <span class="focus-input100"></span>
+            </div> 
+
+            <div class="wrap-input100  validate-input">
+                <label for="dp">Téléchargez votre photo de profil  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input id="dp" type="file" name="image" accept="image/*">
+            </div> 
+            
+            <div class="container-contact100-form-btn">
+                <button type="submit" class="notify-btn">
+                    <span>
+                        S'enregistrer
+                    </span>
+                </button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="reset" class="notify-btn">
+                        <span>
+                            Effacer
+                        </span>
+                    </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="{% static "assets/static/js/form.js" %}"></script>"
+
+{% endblock %}
